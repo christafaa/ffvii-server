@@ -25,7 +25,8 @@ ActiveRecord::Schema.define(version: 2019_03_20_000331) do
     t.string "description"
     t.boolean "inStore"
     t.string "cost"
-    t.json "equip_effect"
+    t.json "equipEffect"
+    t.string "priceForMaster"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
