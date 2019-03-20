@@ -62,21 +62,21 @@
 
 # Magic Materia
 
-{
+lightning = {
   "name": "Lightning",
   "type": "Magic",
   "description": "Equips \"Lightning\" magic",
   "inStore": true,
   "cost": "600 Gil",
-  "location": [
-    "Cloud (default equipment)",
-    "Sector 7 Materia Shop",
-    "Sector 5 Materia Shop",
-    "Fort Condor Materia Shop",
-    "Junon Materia Shop",
-    "Costa Del Sol Materia Shop",
-    "Mideel Materia Shop"
-  ],
+  # "location": [
+  #   "Cloud (default equipment)",
+  #   "Sector 7 Materia Shop",
+  #   "Sector 5 Materia Shop",
+  #   "Fort Condor Materia Shop",
+  #   "Junon Materia Shop",
+  #   "Costa Del Sol Materia Shop",
+  #   "Mideel Materia Shop"
+  # ],
   "equipEffect": {
     "maxHP": {
       "modifer": 0.98,
@@ -111,25 +111,31 @@
       "operation": "none"
     }
   },
-  "levels": [
-    {
-      "level": 1,
-      "ability": "Bolt",
-      "toNextLevel": "2,000 AP"
-    },
-    {
-      "level": 2,
-      "ability": "Bolt2",
-      "toNextLevel": "18,000 AP"
-    },
-    {
-      "level": 3,
-      "ability": "Bolt3",
-      "toNextLevel": "35,000 AP"
-    }
-  ],
+  # "levels": [
+  #   {
+  #     "level": 1,
+  #     "ability": "Bolt",
+  #     "toNextLevel": "2,000 AP"
+  #   },
+  #   {
+  #     "level": 2,
+  #     "ability": "Bolt2",
+  #     "toNextLevel": "18,000 AP"
+  #   },
+  #   {
+  #     "level": 3,
+  #     "ability": "Bolt3",
+  #     "toNextLevel": "35,000 AP"
+  #   }
+  # ],
   "priceForMaster": "42,000 Gil"
 }
+
+MateriaLocation.delete_all
+Materia.delete_all
+Location.delete_all
+
+# Materia.create(lightning)
 
 locations = ["Cloud (default equipment)",
 "Sector 7 Materia Shop",
@@ -139,4 +145,50 @@ locations = ["Cloud (default equipment)",
 "Costa Del Sol Materia Shop",
 "Mideel Materia Shop"]
 
-locations.each {|name| Location.create(name: name) }
+# locations.each {|name| Location.create(name: name) }
+
+
+magic = {
+  "name": "Lightning",
+  "type": "Magic",
+  "description": "Equips \"Lightning\" magic",
+  "inStore": true,
+  "cost": "600 Gil",
+  "equipEffect": {
+    "maxHP": {
+      "modifer": 0.98,
+      "operation": "multiply"
+    },
+    "maxMP": {
+      "modifier": 1.02,
+      "operation": "multiply"
+    },
+    "strength": {
+      "modifier": 1,
+      "operation": "subtract"
+    },
+    "dexterity": {
+      "modifier": 0,
+      "operation": "none"
+    },
+    "vitality": {
+      "modifier": 0,
+      "operation": "none"
+    },
+    "magic": {
+      "modifier": 1,
+      "operation": "add"
+    },
+    "magicDef": {
+      "modifier": 0,
+      "operation": "none"
+    },
+    "luck": {
+      "modifier": 0,
+      "operation": "none"
+    }
+  },
+  "priceForMaster": "42,000 Gil"
+}
+
+Materia.create(magic)

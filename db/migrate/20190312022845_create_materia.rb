@@ -7,6 +7,7 @@ class CreateMateria < ActiveRecord::Migration[5.2]
       t.boolean :inStore
       t.string :cost
       t.json :equip_effect
+      t.string :priceForMaster
 
       t.timestamps
     end
