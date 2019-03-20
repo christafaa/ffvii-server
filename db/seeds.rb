@@ -130,3 +130,13 @@
   ],
   "priceForMaster": "42,000 Gil"
 }
+
+locations = ["Cloud (default equipment)",
+"Sector 7 Materia Shop",
+"Sector 5 Materia Shop",
+"Fort Condor Materia Shop",
+"Junon Materia Shop",
+"Costa Del Sol Materia Shop",
+"Mideel Materia Shop"]
+
+locations.each {|name| Location.create(name: name) }
